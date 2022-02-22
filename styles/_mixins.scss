@@ -1,12 +1,12 @@
 @mixin nav-effect($color) {
-	&::after {
-		background: $color;
-		box-shadow: 0 0 10px $color;
-	}
+    &::after {
+        background: $color;
+        box-shadow: 0 0 10px $color;
+    }
 
-	&::before {
-		color: $color;
-		-webkit-text-stroke-color: $color;
-		text-shadow: 0 0 10px $color;
-	}
+    &::before {
+        color: $color;
+        -webkit-text-stroke-color: $color;
+        text-shadow: 0 0 10px $color;
+    }
 }

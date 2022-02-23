@@ -1,63 +1,80 @@
 @use "../mixins" as *;
 
-nav {
-	display: flex;
-	margin: 5rem;
-	flex-direction: column;
+.navigation {
+    display: flex;
+    margin: 5rem;
+    flex-direction: column;
 }
 
-nav a {
-	font-size: 1.75rem;
-	padding: 0.15em;
-	padding-inline: 0.5em;
-	margin: 0.1em;
-	width: fit-content;
-	text-transform: uppercase;
-	position: relative;
-	letter-spacing: 0.1em;
-	color: transparent;
-	-webkit-text-stroke-width: 1px;
-	-webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
-	transition: all 0.5s ease-in-out;
+nav li {
+    font-size: 1.75rem;
+    padding: 0.15em;
+    padding-inline: 0.5em;
+    margin: 0.1em;
+    width: fit-content;
+    text-transform: uppercase;
+    position: relative;
+    letter-spacing: 0.1em;
+    color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.5);
+    transition: all 0.5s ease-in-out;
+    overflow: hidden;
 
-	&::after {
-		position: absolute;
-		content: "";
-		left: 0;
-		top: 0;
-		height: 100%;
-		width: 2px;
-		transition: left 0.5s ease-in-out;
-	}
+    &::after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 2px;
+        transition: left 0.5s ease-in-out;
+    }
 
-	&::before {
-		position: absolute;
-		content: attr(data-text);
-		width: 0%;
-		overflow: hidden;
-		transition: width 0.5s ease-in-out;
-	}
+    &::before {
+        position: absolute;
+        content: attr(data-text);
+        width: 0%;
+        overflow: hidden;
+        transition: width 0.5s ease-in-out;
+        pointer-events: none;
+    }
 
-	&:hover {
-		text-decoration: none;
+    &:hover,
+    &:focus,
+    &.active {
+        text-decoration: none;
 
-		&::after {
-			left: 100%;
-		}
-		&::before {
-			width: 100%;
-		}
-	}
+        &::after {
+            left: 95%;
+        }
+
+        &::before {
+            width: 100%;
+        }
+    }
 }
 
-nav a:nth-of-type(1) {
-	@include nav-effect(#f000ff);
+nav li:nth-child(1) {
+    @include nav-effect(#4deeea);
 }
 
-nav a:nth-of-type(2) {
-	@include nav-effect(#74ee15);
+nav li:nth-child(2) {
+    @include nav-effect(#74ee15);
 }
 
-nav a:nth-of-type(3) {
-	@include nav-effect(#ffe700);
+nav li:nth-child(3) {
+    @include nav-effect(#ffe700);
 }
+
+nav li:nth-child(4) {
+    @include nav-effect(#f000ff);
+}
+
+// $colors: #4deeea, #74ee15, #ffe700, #f000ff, #001eff;
+
+// @for $i from 1 through length($colors) {
+//   nav a:nth-child(#{$i}) {
+//     @include nav-effect(nth($colors, $i));
+//   }
+// }

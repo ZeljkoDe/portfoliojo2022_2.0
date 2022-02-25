@@ -1,10 +1,10 @@
-import Navigation from '../components/navBar';
+import NavBar from '../components/NavBar';
 import '../styles/index.scss';
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Navigation />
+      <NavBar />
       <Component {...pageProps} />
     </>
   );

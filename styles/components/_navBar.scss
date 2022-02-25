@@ -2,11 +2,14 @@
 
 .navigation {
     display: flex;
-    margin: 5rem;
     flex-direction: column;
+    position: fixed;
+    height: 100vh;
+    width: 200px;
+    background: #000000;
 }
 
-nav li {
+.navigation__item {
     font-size: 1.75rem;
     padding: 0.15em;
     padding-inline: 0.5em;
@@ -53,28 +56,20 @@ nav li {
             width: 100%;
         }
     }
+
+    &:nth-child(1) {
+        @include navigation-hover-effect(#4deeea);
+    }
+
+    &:nth-child(2) {
+        @include navigation-hover-effect(#74ee15);
+    }
+
+    &:nth-child(3) {
+        @include navigation-hover-effect(#ffe700);
+    }
+
+    &:nth-child(4) {
+        @include navigation-hover-effect(#f000ff);
+    }
 }
-
-nav li:nth-child(1) {
-    @include nav-effect(#4deeea);
-}
-
-nav li:nth-child(2) {
-    @include nav-effect(#74ee15);
-}
-
-nav li:nth-child(3) {
-    @include nav-effect(#ffe700);
-}
-
-nav li:nth-child(4) {
-    @include nav-effect(#f000ff);
-}
-
-// $colors: #4deeea, #74ee15, #ffe700, #f000ff, #001eff;
-
-// @for $i from 1 through length($colors) {
-//   nav a:nth-child(#{$i}) {
-//     @include nav-effect(nth($colors, $i));
-//   }
-// }

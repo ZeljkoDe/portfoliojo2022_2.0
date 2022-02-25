@@ -1,8 +1,7 @@
-import React from 'react';
 import Link from 'next/link';
 import { useRouter } from "next/router";
 
-function navBar() {
+function NavBar() {
 	const router = useRouter();
 	const navigation = [
 		{ item: 'home', path: '/#home' },
@@ -17,15 +16,19 @@ function navBar() {
 				<ul>
 					{navigation.map((nav, i) => {
 						return (
-							<li key={i} className={router.asPath === nav.path ? 'active' : ''} data-text={nav.item}>
+							<li
+								key={i}
+								data-text={nav.item}
+								className={router.asPath === nav.path ? 'navigation__item active' : 'navigation__item'}
+							>
 								<Link href={nav.path}><a>{nav.item}</a></Link>
 							</li>
 						);
 					})}
-				</ul >
+				</ul>
 			</nav >
 		</>
 	);
 }
 
-export default navBar;
+export default NavBar;

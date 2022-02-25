@@ -11,7 +11,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1>TEST</h1>
+        <section id='home'></section>
+        <section id='about'></section>
+        <section id='work'></section>
+        <section id='hire-me'></section>
       </main>
     </>
   );

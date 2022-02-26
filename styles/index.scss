@@ -1,4 +1,5 @@
 @forward "reset";
+@forward "typography";
 
 // components
 @forward "./components/navBar";
@@ -10,6 +11,8 @@ main {
 section {
     height: 100vh;
     flex: 0 0 100%;
+    padding-left: 250px;
+    padding-top: 30px;
 }
 
 section:nth-of-type(1) {
@@ -24,3 +27,4 @@ section:nth-of-type(3) {
 section:nth-of-type(4) {
     background: green;
 }
+

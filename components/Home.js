@@ -1,8 +1,8 @@
-import React from 'react';
-
-function Home() {
+function Home(props) {
     return (
-        <div>Home</div>
+        <section id={props.id}>
+            <h2>{props.id}</h2>
+        </section>
     );
 }
 

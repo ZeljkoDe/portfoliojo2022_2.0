@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from "next/router";
+import { useEffect } from 'react';
 
 function NavBar() {
 	const router = useRouter();
@@ -10,6 +11,16 @@ function NavBar() {
 		{ item: 'hire me', path: '/#hire-me' },
 	];
 
+	useEffect(() => {
+
+		const navItems = [...document.querySelector('ul').children];
+		navItems.forEach((item) => {
+			item.classList.remove('active');
+		});
+		console.log(navItems);
+
+	});
+
 	return (
 		<>
 			<nav className='navigation'>
@@ -19,7 +30,8 @@ function NavBar() {
 							<li
 								key={i}
 								data-text={nav.item}
-								className={router.asPath === nav.path ? 'navigation__item active' : 'navigation__item'}
+								className={'navigation__item'}
+								onClick={({ target }) => target.parentElement.classList.add('active')}
 							>
 								<Link href={nav.path}><a>{nav.item}</a></Link>
 							</li>
